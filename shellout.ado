@@ -1,5 +1,5 @@
 program def shellout, rclass
-	version 12.0
+	version 13.0
 	syntax anything (name=cmd)
 	tempfile fname
 	shell `cmd' >> `fname'
