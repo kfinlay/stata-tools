@@ -3,6 +3,9 @@ stata-tools
 
 Various scripts for Stata
 
+* `cleanstates.ado`: converts state variables to [FIPS state code](https://en.wikipedia.org/wiki/FIPS_state_code)
+  * can figure out state abbreviations and full state names
+  * I assume no liability!
 * `shellout.ado`: exports output of shell command to a local
   * useful for more powerful regular expressions
   * this is a rewrite of Nikos Askitas's [`ashell`](http://ideas.repec.org/c/boc/bocode/s456833.html) taking advantage of Stata 13's long-string support
