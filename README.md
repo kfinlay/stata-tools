@@ -7,6 +7,7 @@ Various scripts for Stata
   * can figure out state abbreviations and full state names
 * `grepstr.ado`: runs grep on string variable and returns new variable with matches
   * requires shell access to grep (Mac, Linux, etc.)
+  * allows Stata 13 long strings
   * currently very inefficient, but Stata's regex is pretty limited
 * `shellout.ado`: exports output of shell command to a local
   * useful for more powerful regular expressions
