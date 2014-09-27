@@ -6,7 +6,7 @@ Various scripts for Stata
 * `cleanstates.ado`: converts state variables to [FIPS state code](https://en.wikipedia.org/wiki/FIPS_state_code)
   * can figure out state abbreviations and full state names
 * `grepstr.ado`: runs grep on string variable and returns new variable with matches
-  * requires shell access to grep
+  * requires shell access to grep (Mac, Linux, etc.)
   * currently very inefficient, but Stata's regex is pretty limited
 * `shellout.ado`: exports output of shell command to a local
   * useful for more powerful regular expressions
