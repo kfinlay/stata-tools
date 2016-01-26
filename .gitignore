@@ -1,0 +1,9 @@
+###Stata###
+
+*.dta
+*.log
+
+###Sublime Text###
+
+*.sublime-workspace
+sftp-config.json

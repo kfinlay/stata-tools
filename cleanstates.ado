@@ -16,7 +16,8 @@ program define cleanstates, rclass
 		}
 	}
 	tempvar tempstate
-	if "`alreadyfips'"=="alreadyfips" {
+	capture ds `varname', has(type numeric)
+	if "`alreadyfips'"=="alreadyfips" & strlen("`r(varlist)'") {
 		gen `tempstate'=`varname'
 		if "`missing'"!="" {
 			foreach mval in `missing' {
@@ -26,72 +27,72 @@ program define cleanstates, rclass
 	}
 	else if "`r(varlist)'"=="`varname'" {
 		gen `tempstate'=.
-		replace `tempstate'=1	 if `varname'=="AL" | `varname'=="al" | `varname'=="Alabama"
-		replace `tempstate'=2	 if `varname'=="AK" | `varname'=="ak" | `varname'=="Alaska"
-		replace `tempstate'=4	 if `varname'=="AZ" | `varname'=="az" | `varname'=="Arizona"
-		replace `tempstate'=5	 if `varname'=="AR" | `varname'=="ar" | `varname'=="Arkansas"
-		replace `tempstate'=6	 if `varname'=="CA" | `varname'=="ca" | `varname'=="California"
-		replace `tempstate'=8	 if `varname'=="CO" | `varname'=="co" | `varname'=="Colorado"
-		replace `tempstate'=9	 if `varname'=="CT" | `varname'=="ct" | `varname'=="Connecticut"
-		replace `tempstate'=10	 if `varname'=="DE" | `varname'=="de" | `varname'=="Delaware"
-		replace `tempstate'=11	 if `varname'=="DC" | `varname'=="dc" | `varname'=="District of Columbia"
-		replace `tempstate'=12	 if `varname'=="FL" | `varname'=="fl" | `varname'=="Florida"
-		replace `tempstate'=13	 if `varname'=="GA" | `varname'=="ga" | `varname'=="Georgia"
-		replace `tempstate'=15	 if `varname'=="HI" | `varname'=="hi" | `varname'=="Hawaii"
-		replace `tempstate'=16	 if `varname'=="ID" | `varname'=="id" | `varname'=="Idaho"
-		replace `tempstate'=17	 if `varname'=="IL" | `varname'=="il" | `varname'=="Illinois"
-		replace `tempstate'=18	 if `varname'=="IN" | `varname'=="in" | `varname'=="Indiana"
-		replace `tempstate'=19	 if `varname'=="IA" | `varname'=="ia" | `varname'=="Iowa"
-		replace `tempstate'=20	 if `varname'=="KS" | `varname'=="ks" | `varname'=="Kansas"
-		replace `tempstate'=21	 if `varname'=="KY" | `varname'=="ky" | `varname'=="Kentucky"
-		replace `tempstate'=22	 if `varname'=="LA" | `varname'=="la" | `varname'=="Louisiana"
-		replace `tempstate'=23	 if `varname'=="ME" | `varname'=="me" | `varname'=="Maine"
-		replace `tempstate'=24	 if `varname'=="MD" | `varname'=="md" | `varname'=="Maryland"
-		replace `tempstate'=25	 if `varname'=="MA" | `varname'=="ma" | `varname'=="Massachusetts"
-		replace `tempstate'=26	 if `varname'=="MI" | `varname'=="mi" | `varname'=="Michigan"
-		replace `tempstate'=27	 if `varname'=="MN" | `varname'=="mn" | `varname'=="Minnesota"
-		replace `tempstate'=28	 if `varname'=="MS" | `varname'=="ms" | `varname'=="Mississippi"
-		replace `tempstate'=29	 if `varname'=="MO" | `varname'=="mo" | `varname'=="Missouri"
-		replace `tempstate'=30	 if `varname'=="MT" | `varname'=="mt" | `varname'=="Montana"
-		replace `tempstate'=31	 if `varname'=="NE" | `varname'=="ne" | `varname'=="Nebraska"
-		replace `tempstate'=32	 if `varname'=="NV" | `varname'=="nv" | `varname'=="Nevada"
-		replace `tempstate'=33	 if `varname'=="NH" | `varname'=="nh" | `varname'=="New Hampshire"
-		replace `tempstate'=34	 if `varname'=="NJ" | `varname'=="nj" | `varname'=="New Jersey"
-		replace `tempstate'=35	 if `varname'=="NM" | `varname'=="nm" | `varname'=="New Mexico"
-		replace `tempstate'=36	 if `varname'=="NY" | `varname'=="ny" | `varname'=="New York"
-		replace `tempstate'=37	 if `varname'=="NC" | `varname'=="nc" | `varname'=="North Carolina"
-		replace `tempstate'=38	 if `varname'=="ND" | `varname'=="nd" | `varname'=="North Dakota"
-		replace `tempstate'=39	 if `varname'=="OH" | `varname'=="oh" | `varname'=="Ohio"
-		replace `tempstate'=40	 if `varname'=="OK" | `varname'=="ok" | `varname'=="Oklahoma"
-		replace `tempstate'=41	 if `varname'=="OR" | `varname'=="or" | `varname'=="Oregon"
-		replace `tempstate'=42	 if `varname'=="PA" | `varname'=="pa" | `varname'=="Pennsylvania"
-		replace `tempstate'=44	 if `varname'=="RI" | `varname'=="ri" | `varname'=="Rhode Island"
-		replace `tempstate'=45	 if `varname'=="SC" | `varname'=="sc" | `varname'=="South Carolina"
-		replace `tempstate'=46	 if `varname'=="SD" | `varname'=="sd" | `varname'=="South Dakota"
-		replace `tempstate'=47	 if `varname'=="TN" | `varname'=="tn" | `varname'=="Tennessee"
-		replace `tempstate'=48	 if `varname'=="TX" | `varname'=="tx" | `varname'=="Texas"
-		replace `tempstate'=49	 if `varname'=="UT" | `varname'=="ut" | `varname'=="Utah"
-		replace `tempstate'=50	 if `varname'=="VT" | `varname'=="vt" | `varname'=="Vermont"
-		replace `tempstate'=51	 if `varname'=="VA" | `varname'=="va" | `varname'=="Virginia"
-		replace `tempstate'=53	 if `varname'=="WA" | `varname'=="wa" | `varname'=="Washington"
-		replace `tempstate'=54	 if `varname'=="WV" | `varname'=="wv" | `varname'=="West Virginia"
-		replace `tempstate'=55	 if `varname'=="WI" | `varname'=="wi" | `varname'=="Wisconsin"
-		replace `tempstate'=56	 if `varname'=="WY" | `varname'=="wy" | `varname'=="Wyoming"
+		replace `tempstate'=1	 if inlist(`varname',"AL","01","al","Alabama")
+		replace `tempstate'=2	 if inlist(`varname',"AK","02","ak","Alaska")
+		replace `tempstate'=4	 if inlist(`varname',"AZ","04","az","Arizona")
+		replace `tempstate'=5	 if inlist(`varname',"AR","05","ar","Arkansas")
+		replace `tempstate'=6	 if inlist(`varname',"CA","06","ca","California")
+		replace `tempstate'=8	 if inlist(`varname',"CO","08","co","Colorado")
+		replace `tempstate'=9	 if inlist(`varname',"CT","09","ct","Connecticut")
+		replace `tempstate'=10	 if inlist(`varname',"DE","10","de","Delaware")
+		replace `tempstate'=11	 if inlist(`varname',"DC","11","dc","District of Columbia")
+		replace `tempstate'=12	 if inlist(`varname',"FL","12","fl","Florida")
+		replace `tempstate'=13	 if inlist(`varname',"GA","13","ga","Georgia")
+		replace `tempstate'=15	 if inlist(`varname',"HI","15","hi","Hawaii")
+		replace `tempstate'=16	 if inlist(`varname',"ID","16","id","Idaho")
+		replace `tempstate'=17	 if inlist(`varname',"IL","17","il","Illinois")
+		replace `tempstate'=18	 if inlist(`varname',"IN","18","in","Indiana")
+		replace `tempstate'=19	 if inlist(`varname',"IA","19","ia","Iowa")
+		replace `tempstate'=20	 if inlist(`varname',"KS","20","ks","Kansas")
+		replace `tempstate'=21	 if inlist(`varname',"KY","21","ky","Kentucky")
+		replace `tempstate'=22	 if inlist(`varname',"LA","22","la","Louisiana")
+		replace `tempstate'=23	 if inlist(`varname',"ME","23","me","Maine")
+		replace `tempstate'=24	 if inlist(`varname',"MD","24","md","Maryland")
+		replace `tempstate'=25	 if inlist(`varname',"MA","25","ma","Massachusetts")
+		replace `tempstate'=26	 if inlist(`varname',"MI","26","mi","Michigan")
+		replace `tempstate'=27	 if inlist(`varname',"MN","27","mn","Minnesota")
+		replace `tempstate'=28	 if inlist(`varname',"MS","28","ms","Mississippi")
+		replace `tempstate'=29	 if inlist(`varname',"MO","29","mo","Missouri")
+		replace `tempstate'=30	 if inlist(`varname',"MT","30","mt","Montana")
+		replace `tempstate'=31	 if inlist(`varname',"NE","31","ne","Nebraska")
+		replace `tempstate'=32	 if inlist(`varname',"NV","32","nv","Nevada")
+		replace `tempstate'=33	 if inlist(`varname',"NH","33","nh","New Hampshire")
+		replace `tempstate'=34	 if inlist(`varname',"NJ","34","nj","New Jersey")
+		replace `tempstate'=35	 if inlist(`varname',"NM","35","nm","New Mexico")
+		replace `tempstate'=36	 if inlist(`varname',"NY","36","ny","New York")
+		replace `tempstate'=37	 if inlist(`varname',"NC","37","nc","North Carolina")
+		replace `tempstate'=38	 if inlist(`varname',"ND","38","nd","North Dakota")
+		replace `tempstate'=39	 if inlist(`varname',"OH","39","oh","Ohio")
+		replace `tempstate'=40	 if inlist(`varname',"OK","40","ok","Oklahoma")
+		replace `tempstate'=41	 if inlist(`varname',"OR","41","or","Oregon")
+		replace `tempstate'=42	 if inlist(`varname',"PA","42","pa","Pennsylvania")
+		replace `tempstate'=44	 if inlist(`varname',"RI","44","ri","Rhode Island")
+		replace `tempstate'=45	 if inlist(`varname',"SC","45","sc","South Carolina")
+		replace `tempstate'=46	 if inlist(`varname',"SD","46","sd","South Dakota")
+		replace `tempstate'=47	 if inlist(`varname',"TN","47","tn","Tennessee")
+		replace `tempstate'=48	 if inlist(`varname',"TX","48","tx","Texas")
+		replace `tempstate'=49	 if inlist(`varname',"UT","49","ut","Utah")
+		replace `tempstate'=50	 if inlist(`varname',"VT","50","vt","Vermont")
+		replace `tempstate'=51	 if inlist(`varname',"VA","51","va","Virginia")
+		replace `tempstate'=53	 if inlist(`varname',"WA","53","wa","Washington")
+		replace `tempstate'=54	 if inlist(`varname',"WV","54","wv","West Virginia")
+		replace `tempstate'=55	 if inlist(`varname',"WI","55","wi","Wisconsin")
+		replace `tempstate'=56	 if inlist(`varname',"WY","56","wy","Wyoming")
 		if "`missing'"!="" {
 			foreach mval in `missing' {
 				replace `tempstate'=. if `varname'=="`mval'"
 			}
 		}
 		if "`onlystates'"=="" {
-			replace `tempstate'=60	 if `varname'=="AS" | `varname'=="as"
-			replace `tempstate'=64	 if `varname'=="FM" | `varname'=="fm"
-			replace `tempstate'=66	 if `varname'=="GU" | `varname'=="gu"
-			replace `tempstate'=68	 if `varname'=="MH" | `varname'=="mh"
-			replace `tempstate'=69	 if `varname'=="MP" | `varname'=="mp"
-			replace `tempstate'=70	 if `varname'=="PW" | `varname'=="pw"
-			replace `tempstate'=72	 if `varname'=="PR" | `varname'=="pr"
-			replace `tempstate'=74	 if `varname'=="UM" | `varname'=="um"
-			replace `tempstate'=78	 if `varname'=="VI"	| `varname'=="vi"
+			replace `tempstate'=60	 if inlist(`varname',"AS","60","as","American Samoa")
+			replace `tempstate'=64	 if inlist(`varname',"FM","64","fm","Federated States of Micronesia")
+			replace `tempstate'=66	 if inlist(`varname',"GU","66","gu","Guam")
+			replace `tempstate'=68	 if inlist(`varname',"MH","68","mh","Marshall Islands")
+			replace `tempstate'=69	 if inlist(`varname',"MP","69","mp","Northern Mariana Islands")
+			replace `tempstate'=70	 if inlist(`varname',"PW","70","pw","Palau")
+			replace `tempstate'=72	 if inlist(`varname',"PR","72","pr","Puerto Rico")
+			replace `tempstate'=74	 if inlist(`varname',"UM","74","um","U.S. Minor Outlying Islands","US Minor Outlying Islands")
+			replace `tempstate'=78	 if inlist(`varname',"VI","78","vi","Virgin Islands of the U.S.","Virgin Islands of the US","US Virgin Islands","U.S. Virgin Islands")
 		}
 	}
 	else {
