@@ -25,7 +25,7 @@ program define cleanstates, rclass
 			}
 		}
 	}
-	else if "`r(varlist)'"=="`varname'" {
+	else if !strlen("`r(varlist)'") {
 		gen `tempstate'=.
 		replace `tempstate'=1	 if inlist(`varname',"AL","01","al","Alabama")
 		replace `tempstate'=2	 if inlist(`varname',"AK","02","ak","Alaska")
