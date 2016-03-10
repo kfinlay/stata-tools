@@ -88,7 +88,7 @@ program define cleanstates, rclass
 			`noisily' replace `tempstate'=70	 if `touse' & inlist(`varname',"PW","Pw","70","pw","Palau","PALAU")
 			`noisily' replace `tempstate'=72	 if `touse' & inlist(`varname',"PR","Pr","72","pr","Puerto Rico","PUERTO RICO")
 			`noisily' replace `tempstate'=74	 if `touse' & inlist(`varname',"UM","Um","74","um","U.S. Minor Outlying Islands","US Minor Outlying Islands","U.S. MINOR OUTLYING ISLANDS","US MINOR OUTLYING ISLANDS")
-			`noisily' replace `tempstate'=78	 if `touse' & inlist(`varname',"VI","Vi","78","vi","Virgin Islands of the U.S.","Virgin Islands of the US","US Virgin Islands","U.S. Virgin Islands","VIRGIN ISLANDS OF THE U.S.","VIRGIN ISLANDS OF THE US","US VIRGIN ISLANDS","U.S. VIRGIN ISLANDS")
+			`noisily' replace `tempstate'=78	 if `touse' & (inlist(`varname',"VI","Vi","78","vi","Virgin Islands of the U.S.","Virgin Islands of the US","US Virgin Islands","U.S. Virgin Islands") + inlist(`varname',"VIRGIN ISLANDS OF THE U.S.","VIRGIN ISLANDS OF THE US","US VIRGIN ISLANDS","U.S. VIRGIN ISLANDS"))
 		}
 	}
 	else if strlen("`alreadyfips'") {
