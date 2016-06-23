@@ -6,6 +6,9 @@ Various scripts for Stata
 * `cleanstates.ado`: converts state variables to [FIPS state code](https://en.wikipedia.org/wiki/FIPS_state_code)
   * can figure out state abbreviations and full state names
   * note that this creates a numeric FIPS with state name labels; the proper FIPS specification is a two-character string variable with a leading zero
+* `countyfipsrecode`: recodes county FIPS codes based on changes in county-equivalent jurisdictions
+  * present-oriented for use in 2016
+  * very much a draft and unusable at this point
 * `grepstr.ado`: runs grep on string variable and returns new variable with matches
   * requires shell access to grep (Mac, Linux, etc.)
   * allows Stata 13 long strings
