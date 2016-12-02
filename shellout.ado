@@ -2,7 +2,7 @@ program def shellout, rclass
 	version 13.0
 	syntax anything (name=cmd)
 	tempfile fname
-	shell `cmd' >> `fname'
+	shell `cmd' > `fname'
 	tempname fh
 	local linesout ""
 	file open `fh' using `fname', read
